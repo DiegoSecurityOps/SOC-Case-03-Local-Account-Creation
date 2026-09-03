@@ -1,0 +1,11 @@
+index=windows_soc sourcetype="WinEventLog:Security" host="SOC-WS01" "SOC_LAB" EventCode IN (4720,4722,4724,4738,4624,4732)
+| eval event_description=case(
+    EventCode=4720, "Account created",
+    EventCode=4722, "Account enabled",
+    EventCode=4724, "Password set or reset",
+    EventCode=4738, "Account modified",
+    EventCode=4624, "Successful logon",
+    EventCode=4732, "Added to security-enabled local group",
+    true(), "Other account activity")
+| table _time host EventCode event_description user Logon_Type
+| sort _time

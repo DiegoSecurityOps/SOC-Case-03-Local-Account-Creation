@@ -1,0 +1,5 @@
+index=windows_soc sourcetype="WinEventLog:Security" EventCode=4720 earliest=-24h latest=now
+| rex "Sujeto:[\s\S]*?Nombre de cuenta:\s+(?<creator_user>\S+)"
+| rex "Nueva cuenta:[\s\S]*?Nombre de cuenta:\s+(?<new_account>\S+)"
+| table _time host creator_user new_account
+| sort - _time
