@@ -40,6 +40,8 @@ New account: SOC_LAB
 See [`evidence/README.md`](evidence/README.md) before adding public evidence.
 
 
+### Sanitized Result Summary
+
 | Investigation step | Observed result |
 | --- | --- |
 | Host reviewed | `SOC-WS01` |
