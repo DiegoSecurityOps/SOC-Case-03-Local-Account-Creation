@@ -30,11 +30,11 @@ Creator: lab_analyst
 New account: SOC_LAB
 
 4720 → account created
-4724 → password set/reset
+4724 → password reset attempt
 4738 → account modified
 4722 → account enabled
 4624 → successful interactive logon (Logon Type 2)
-4732 → not observed for SOC_LAB
+4732 → not observed for SOC_LAB during the reviewed investigation window
 ```
 
 See [`evidence/README.md`](evidence/README.md) before adding public evidence.
@@ -42,15 +42,16 @@ See [`evidence/README.md`](evidence/README.md) before adding public evidence.
 ### Sanitized Result Summary
 
 | Investigation step | Observed result |
-|---|---|
+| --- | --- |
 | Host reviewed | `SOC-WS01` |
 | Creating account | `lab_analyst` |
 | New local account | `SOC_LAB` |
 | Account created | Event ID `4720` observed |
 | Account enabled | Event ID `4722` observed |
-| Account modified | Event IDs `4724` and `4738` observed |
+| Password reset attempt | Event ID `4724` observed |
+| Account modified | Event ID `4738` observed |
 | Successful use | Event ID `4624`, Logon Type `2` observed |
-| Local-group addition | Event ID `4732` not observed in the reviewed scope |
+| Local-group addition | Event ID `4732` not observed during the reviewed investigation window |
 
 ## Analysis
 
@@ -70,8 +71,10 @@ Document and close the lab case. In production, validate authorization, review t
 
 ## MITRE ATT&CK
 
-- **T1136.001 — Create Account: Local Account:** directly relevant to creation of a local account.
-- **T1078.003 — Valid Accounts: Local Accounts:** relevant to subsequent use of the created local account.
+## MITRE ATT&CK
+
+- **T1136.001 — Create Account: Local Account:** directly relevant to the creation of the local account.
+- **T1078.003 — Valid Accounts: Local Accounts:** behaviorally relevant because the newly created local account was subsequently used for an interactive logon; no malicious use was identified in this exercise.
 
 ## Lessons Learned
 
