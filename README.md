@@ -39,7 +39,6 @@ New account: SOC_LAB
 
 See [`evidence/README.md`](evidence/README.md) before adding public evidence.
 
-### Sanitized Result Summary
 
 | Investigation step | Observed result |
 | --- | --- |
@@ -69,7 +68,6 @@ I confirmed that `lab_analyst` created `SOC_LAB`, after which the account was en
 
 Document and close the lab case. In production, validate authorization, review the creator's session, inspect group membership and account properties, search for subsequent logons and process activity, and disable the account if unauthorized.
 
-## MITRE ATT&CK
 
 ## MITRE ATT&CK
 
